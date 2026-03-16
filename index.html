@@ -72,6 +72,22 @@
             transform:scale(1.12);
         }
 
+        .project-card span::before {
+            content: '';
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #ff3b3b;
+            border-radius: 50%;
+            margin-right: 6px;
+            animation: blink 1.2s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50%, 100% { opacity: 1; }
+            25%, 75% { opacity: 0; }
+        }        
+
         .service-icon{
             transition: transform 0.3s ease;
         }
@@ -460,7 +476,7 @@
 
 </section>
 
-<section id="services" class="reveal py-24 bg-black text-white">
+<section id="services" class="reveal py-24 bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
 
   <h2 class="text-3xl font-bold text-center mb-16 text-red-500 neon-text">
     Services Offered
@@ -527,7 +543,7 @@
 </section>
 
 <!-- Projects -->
-<section id="projects" class="reveal py-24 bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
+<section id="projects" class="reveal py-24 bg-black text-white">
   <div class="max-w-6xl mx-auto px-6">
     <h2 class="text-3xl font-bold text-center mb-12 text-red-500 neon-text">Projects</h2>
 
@@ -587,6 +603,46 @@
       </div> -->
 
     </div>
+  </div>
+</section>
+
+<section id="ongoing-projects" class="reveal py-24 bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
+  <h2 class="text-3xl font-bold text-center mb-16 text-red-500 neon-text">
+    Ongoing Projects
+  </h2>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
+
+    <!-- Project 1 -->
+    <div class="project-card bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
+      <h3 class="text-xl font-semibold mb-3 text-red-400">Attendance Management system with Fingerprint scanner using Arduino IDE</h3>
+      <p class="text-gray-400 mb-4">Developing a responsive Web based application for managing attendance tracked by fingerprint scanner. <br/>Tech stack used; Phyton and Django Framework, PostgreSQL.</p>
+      <i class="fa-brands fa-python text-2xl text-red-500 m-2"></i>
+      <i class="fa-solid fa-database text-2xl text-red-500 m-2"></i>
+      <br/>
+      <span class="text-sm text-red-500 font-medium">In Progress</span>
+    </div>
+
+    <!-- Project 2 -->
+    <div class="project-card bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
+      <h3 class="text-xl font-semibold mb-3 text-red-400">Enrollment Management System</h3>
+      <p class="text-gray-400 mb-4">Developing a Dynamic web based application that will cater automation of enrollment procedures with comprehensice Grading and Sceduling system. This is an upgrade of the current exsiting finished project we made. <br>Tech stack used; HTLM5 + Tailwind, RestfulAPI, ReactJS, PostgreSQL.</p>
+      <i class="fa-brands fa-html5 text-2xl text-red-500 m-2"></i>
+      <i class="fa-brands fa-js text-2xl text-red-500 m-2"></i>
+      <br/>
+      <span class="text-sm text-red-500 font-medium">In Progress</span>
+    </div>
+
+    <!-- Project 3 -->
+    <div class="project-card bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
+      <h3 class="text-xl font-semibold mb-3 text-red-400">Red-Themed Portfolio Revamp | JeRa</h3>
+      <p class="text-gray-400 mb-4">Redesigning a professional portfolio with neon-red cyber aesthetics, animations, and responsive layouts.</p>
+      <i class="fa-brands fa-html5 text-2xl text-red-500 m-2"></i>
+      <i class="fa-brands fa-js text-2xl text-red-500 m-2"></i>
+      <br/>      
+      <span class="text-sm text-red-500 font-medium">In Progress</span>
+    </div>
+
   </div>
 </section>
 
