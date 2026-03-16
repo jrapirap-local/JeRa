@@ -213,7 +213,9 @@
     </h1>
     <ul class="flex gap-6 text-gray-300">
         <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
+        <li><a href="#services" class="hover:text-red-400 transition">Services</a></li>
         <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
+        <li><a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a></li>
         <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
     </ul>
   </nav>
@@ -252,8 +254,12 @@
 
       <!-- LEFT SIDE -->
       <div>
-        <img src="https://lh3.googleusercontent.com/d/15Aj9__ngtmtJz_CM3an4OE5ksXnHKC0t=w1000"
-        class="rounded-xl shadow-2xl shadow-red-500/40 border border-red-500/30">
+        <div class="overflow-hidden rounded-xl group">
+          <img src="https://lh3.googleusercontent.com/d/15Aj9__ngtmtJz_CM3an4OE5ksXnHKC0t=w1000"
+              class="rounded-xl shadow-2xl shadow-red-500/40 border border-red-500/30 
+                      transform transition duration-500 
+                      group-hover:scale-110 group-hover:brightness-110">
+        </div>
 
         <p class="text-white mt-6 leading-relaxed">
           We build scalable applications using modern backend technologies
@@ -551,9 +557,13 @@
 
       <!-- Project Card -->
       <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
-        <div class="overflow-hidden rounded-t-xl">
-            <img src="https://lh3.googleusercontent.com/d/1TL5_OJGyaG21La-I68b86gXeonlWuQGy=w2000" class="project-img w-full">
-        </div>
+        <div class="relative overflow-hidden rounded-xl group">
+          <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w2000"
+              class="project-img w-full">
+          <!-- Red Frosted Overlay -->
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
+              group-hover:opacity-10 transition duration-500"></div>
+        </div>        
         <div class="p-5">
             <h3 class="text-xl font-semibold mb-2 text-red-400">Enrollment System with Grading and Scheduling</h3>
             <p class="text-gray-600 mb-3">A responsive website for Small to Medium Educational institution that handles the Entire Enrollment system with Class to Student specific Grading and Scheduling system.</p>
@@ -564,8 +574,12 @@
       </div>
 
       <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
-        <div class="overflow-hidden rounded-t-xl">
-            <img src="https://lh3.googleusercontent.com/d/1vtTw03NYPmNRJU63ebEaZAXN7qMN8gEZ=w2000" class="project-img w-full">
+        <div class="relative overflow-hidden rounded-xl group">
+          <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w2000"
+              class="project-img w-full">
+          <!-- Red Frosted Overlay -->
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
+              group-hover:opacity-10 transition duration-500"></div>
         </div>
         <div class="p-5">
           <h3 class="text-xl font-semibold mb-2 text-red-400">Arduino based Emergency and Medical Transmitter and Reciever using LoRa-02</h3>
@@ -577,8 +591,12 @@
       </div>
 
       <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
-        <div class="overflow-hidden rounded-t-xl">
-            <img src="https://lh3.googleusercontent.com/d/14zzYaTIVxlOBr5CbDF7iHO3hnd9A1mWu=w2000" class="project-img w-full">
+        <div class="relative overflow-hidden rounded-xl group">
+          <img src="https://lh3.googleusercontent.com/d/14zzYaTIVxlOBr5CbDF7iHO3hnd9A1mWu=w2000"
+              class="project-img w-full">
+          <!-- Red Frosted Overlay -->
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
+              group-hover:opacity-10 transition duration-500"></div>
         </div>
         <div class="p-5">
           <h3 class="text-xl font-semibold mb-2 text-red-400">Check our Project Repository</h3>
@@ -629,6 +647,7 @@
       <p class="text-gray-400 mb-4">Developing a Dynamic web based application that will cater automation of enrollment procedures with comprehensice Grading and Sceduling system. This is an upgrade of the current exsiting finished project we made. <br>Tech stack used; HTLM5 + Tailwind, RestfulAPI, ReactJS, PostgreSQL.</p>
       <i class="fa-brands fa-html5 text-2xl text-red-500 m-2"></i>
       <i class="fa-brands fa-js text-2xl text-red-500 m-2"></i>
+      <i class="fa-solid fa-database text-2xl text-red-500 m-2"></i>
       <br/>
       <span class="text-sm text-red-500 font-medium">In Progress</span>
     </div>
