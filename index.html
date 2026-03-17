@@ -208,17 +208,36 @@
 <!-- Navbar -->
 <header class="fixed w-full z-50 backdrop-blur-lg bg-black/40 border-b border-red-500/20">
   <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+
+    <!-- Logo -->
     <h1 class="text-xl font-bold text-red-500 tracking-widest logo-font">
-    JERA
+      JERA
     </h1>
-    <ul class="flex gap-6 text-gray-300">
-        <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
-        <li><a href="#services" class="hover:text-red-400 transition">Services</a></li>
-        <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
-        <li><a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a></li>
-        <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
+
+    <!-- Hamburger Button -->
+    <button id="menu-btn" class="md:hidden text-gray-300 text-2xl">
+      ☰
+    </button>
+
+    <!-- Desktop Menu -->
+    <ul class="hidden md:flex gap-6 text-gray-300">
+      <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
+      <li><a href="#services" class="hover:text-red-400 transition">Services</a></li>
+      <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
+      <li><a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a></li>
+      <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
     </ul>
+
   </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden md:hidden flex flex-col gap-4 p-4 bg-black/90 text-gray-300 border-t border-red-500/20">
+    <a href="#about" class="hover:text-red-400 transition">About</a>
+    <a href="#services" class="hover:text-red-400 transition">Services</a>
+    <a href="#projects" class="hover:text-red-400 transition">Projects</a>
+    <a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a>
+    <a href="#contact" class="hover:text-red-400 transition">Contact</a>
+  </div>
 </header>
 
 <!-- Hero -->
@@ -556,56 +575,68 @@
     <div class="grid md:grid-cols-3 gap-8">
 
       <!-- Project Card -->
-      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
+      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4"> 
         <div class="relative overflow-hidden rounded-xl group">
-          <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w2000"
-              class="project-img w-full">
-          <!-- Red Frosted Overlay -->
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
-              group-hover:opacity-10 transition duration-500"></div>
+          <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
+            <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
         </div>        
         <div class="p-5">
-            <h3 class="text-xl font-semibold mb-2 text-red-400">Enrollment System with Grading and Scheduling</h3>
-            <p class="text-gray-600 mb-3">A responsive website for Small to Medium Educational institution that handles the Entire Enrollment system with Class to Student specific Grading and Scheduling system.</p>
-            <a href="https://github.com/jrapirap-local/Enrolment-Management-system-with-Gradng-and-Sceduling" class="text-red-400 font-medium hover:text-red-500" target="_blank">
-                View Project Repository →
+            <h3 class="text-xl font-semibold mb-2 text-red-400">
+              Enrollment System with Grading and Scheduling
+            </h3>
+            <p class="text-gray-600 mb-3">
+              A responsive website for Small to Medium Educational institution that handles the Entire Enrollment system with Class to Student specific Grading and Scheduling system.
+            </p>
+            <a href="https://github.com/jrapirap-local/Enrolment-Management-system-with-Gradng-and-Sceduling"
+              class="text-red-400 font-medium hover:text-red-500"
+              target="_blank">
+              View Project Repository →
             </a>
         </div>
       </div>
-
       <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
         <div class="relative overflow-hidden rounded-xl group">
-          <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w2000"
-              class="project-img w-full">
-          <!-- Red Frosted Overlay -->
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
-              group-hover:opacity-10 transition duration-500"></div>
-        </div>
+          <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
+            <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
+        </div>        
         <div class="p-5">
-          <h3 class="text-xl font-semibold mb-2 text-red-400">Arduino based Emergency and Medical Transmitter and Reciever using LoRa-02</h3>
-          <p class="text-gray-600 mb-3">Using Arduino IDE as the base technology to transmit date from one device to another that delivers precise medical instructions.</p>
-            <a href="https://github.com/jrapirap-local/Arduino-Based-Transmitter-and-Reciever" class="text-red-400 font-medium hover:text-red-500">
-                View Project Repository →
+            <h3 class="text-xl font-semibold mb-2 text-red-400">
+              Arduino based Emergency and Medical Transmitter and Reciever using LoRa-02
+            </h3>
+            <p class="text-gray-600 mb-3">
+              Using Arduino IDE as the base technology to transmit date from one device to another that delivers precise medical instructions.
+            </p>
+            <a href="https://github.com/jrapirap-local/Arduino-Based-Transmitter-and-Reciever" class="text-red-400 font-medium hover:text-red-500" target="_blank">
+              View Project Repository →
             </a>
         </div>
       </div>
-
       <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
         <div class="relative overflow-hidden rounded-xl group">
-          <img src="https://lh3.googleusercontent.com/d/14zzYaTIVxlOBr5CbDF7iHO3hnd9A1mWu=w2000"
-              class="project-img w-full">
-          <!-- Red Frosted Overlay -->
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 
-              group-hover:opacity-10 transition duration-500"></div>
-        </div>
+          <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
+            <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+          <img src="https://lh3.googleusercontent.com/d/14zzYaTIVxlOBr5CbDF7iHO3hnd9A1mWu=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
+          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
+        </div>        
         <div class="p-5">
-          <h3 class="text-xl font-semibold mb-2 text-red-400">Check our Project Repository</h3>
-          <p class="text-gray-600 mb-3">Most of our created projects are a local based software that can be integrated into a specific software. Check our repo for more information by clicking the link below.</p>
-            <a href="https://github.com/jrapirap-local?tab=repositories" class="text-red-400 font-medium hover:text-red-500">
-                View Repository →
+            <h3 class="text-xl font-semibold mb-2 text-red-400">
+              Check our Project Repository
+            </h3>
+            <p class="text-gray-600 mb-3">
+              Most of the projects we develop are locally deployed software solutions designed to integrate with specific systems or organizational workflows.<br/><br/> For more details, please visit our repository using the link below. <br><br>The majority of the materials available in the repository are publicly accessible and may be used as-is or as reference for learning and development purposes. Please note that detailed documentation is not included, as it is reserved exclusively for our internal development team.
+            </p>
+            <a href="https://github.com/jrapirap-local?tab=repositories" class="text-red-400 font-medium hover:text-red-500" target="_blank">
+              View Project Repository →
             </a>
         </div>
-      </div>    
+      </div>  
 
       <!-- <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
         <div class="overflow-hidden rounded-t-xl">
@@ -741,22 +772,29 @@
 </footer>
 
 <script>
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-    const reveal = document.querySelectorAll(".reveal");
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
 
-    function show(){
-    const windowHeight = window.innerHeight;
 
-    reveal.forEach(el=>{
-    const top = el.getBoundingClientRect().top;
+  const reveal = document.querySelectorAll(".reveal");
 
-    if(top < windowHeight - 80){
-    el.classList.add("active");
-    }
-    });
-    }
+  function show(){
+  const windowHeight = window.innerHeight;
 
-    window.addEventListener("scroll", show);   
+  reveal.forEach(el=>{
+  const top = el.getBoundingClientRect().top;
+
+  if(top < windowHeight - 80){
+  el.classList.add("active");
+  }
+  });
+  }
+
+  window.addEventListener("scroll", show);   
 
 </script>
 </body>
