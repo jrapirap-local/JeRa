@@ -1,269 +1,150 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JeRa - IT Solutions</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
-        
-        :root{
-            --red-primary:#ef4444;
-            --red-dark:#7f1d1d;
-            --red-glow:#ff2b2b;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JERA | IT Solutions</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
 
-        .neon-text{
-            color:#ff3b3b;
-            text-shadow:
-            0 0 10px #ff0000,
-            0 0 20px #ff0000,
-            0 0 40px #ff3333,
-            0 0 80px #ff0000;
-        }
+html {
+  scroll-behavior: smooth;
+}
 
-        body {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .hero{
-            background:
-            radial-gradient(circle at 20% 30%, rgba(255,0,0,0.3), transparent 40%),
-            radial-gradient(circle at 80% 70%, rgba(255,0,0,0.3), transparent 40%),
-            #020202;
-            position:relative;
-            overflow:hidden;
-        }
+body{font-family:Inter, sans-serif;}
 
-        .hero::before{
-            content:"";
-            position:absolute;
-            width:200%;
-            height:200%;
-            background:linear-gradient(120deg, transparent, rgba(255,0,0,0.2), transparent);
-            animation:heroMove 10s linear infinite;
-        }
+#mobileMenu {
+  transition: all 0.3s ease;
+}
 
-        @keyframes heroMove{
-            0%{transform:translateX(-50%) rotate(0deg);}
-            100%{transform:translateX(50%) rotate(360deg);}
-        }
+.glass{
+  background: rgba(255,255,255,0.6);
+  backdrop-filter: blur(20px);
+  border:1px solid rgba(255,255,255,0.3);
+}
 
-        .reveal{
-            opacity:0;
-            transform:translateY(40px);
-            transition:all 0.8s ease;
-        }
+.hero-bg{
+  background: radial-gradient(circle at 10% 20%, rgba(239,68,68,0.15), transparent 40%),
+              radial-gradient(circle at 90% 80%, rgba(239,68,68,0.15), transparent 40%),
+              linear-gradient(135deg,#ffffff,#ffe4e6);
+}
 
-        .reveal.active{
-            opacity:1;
-            transform:translateY(0);
-        }
+.btn-primary{
+  background:#ef4444;
+  color:white;
+}
 
-        .project-img{
-            transition:transform 0.6s ease;
-        }
+.btn-primary:hover{
+  background:#dc2626;
+}
 
-        .project-img:hover{
-            transform:scale(1.12);
-        }
+.card-hover{
+  transition: all .4s ease;
+}
+.card-hover:hover{
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(239,68,68,0.2);
+}
 
-        .project-card span::before {
-            content: '';
-            display: inline-block;
-            width: 10px;
-            height: 10px;
-            background: #ff3b3b;
-            border-radius: 50%;
-            margin-right: 6px;
-            animation: blink 1.2s infinite;
-        }
-
-        @keyframes blink {
-            0%, 50%, 100% { opacity: 1; }
-            25%, 75% { opacity: 0; }
-        }        
-
-        .service-icon{
-            transition: transform 0.3s ease;
-        }
-
-        .service-icon:hover{
-            transform: scale(1.2);
-        }        
-
-        .stack-card{
-            background: rgba(0,0,0,0.6);
-            border:1px solid rgba(239,68,68,0.2);
-            backdrop-filter: blur(12px);
-            padding:30px;
-            border-radius:12px;
-            text-align:center;
-            color:#ddd;
-            transition: all 0.3s ease;
-        }
-
-        .stack-card:hover{
-            transform: translateY(-10px) scale(1.05);
-            box-shadow:0 0 30px rgba(239,68,68,0.5);
-        }        
-
-        .social-icon {
-            transition: all 0.3s ease;
-            text-shadow: 0 0 10px #ff0000, 0 0 20px #ff2b2b;
-        }
-
-        .social-icon:hover {
-            text-shadow: 0 0 20px #ff0000, 0 0 40px #ff3333, 0 0 60px #ff4444;
-        }
-
-        .glass {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .neon-text {
-            text-shadow: 0 0 30px var(--neon-cyan),
-                         0 0 60px var(--neon-violet);
-        }
-
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-20px) scale(1.03);
-            box-shadow: 0 0 60px -10px rgb(0 245 255 / 0.6);
-        }
-
-        .scanline {
-            position: relative;
-        }
-        
-        .scanline::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(transparent, rgba(0,245,255,0.15), transparent);
-            /* animation: scan 4s linear infinite; */
-        }
-
-        @keyframes scan {
-            0% { transform: translateY(-100%); }
-            100% { transform: translateY(400%); }
-        }
-
-        .gallery-img {
-            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-        }
-        
-        .gallery-img:hover {
-            transform: scale(1.08);
-            filter: brightness(1.2) contrast(1.15);
-        }
-
-        .audio-wave {
-            animation: waveform 1.2s infinite ease-in-out;
-        }
-        .avatar {
-            width:  50px;           /* or any size you want */
-            height: 50px;
-            object-fit: cover;       /* very important – prevents stretching */
-            border-radius: 50%;      /* this makes it circular */
-            border: 1px solid #00aff0;   /* optional: Skype-like blue border */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* optional nice shadow */
-            }
-            /* Gallery modal enhancements */
-        #gallery-modal {
-            opacity: 0;
-            backdrop-filter: blur(8px);
-        }
-
-        #gallery-modal img {
-            height: 90vh;
-            transition: transform 0.4s ease;
-        }
-
-        #gallery-modal img:hover {
-            transform: scale(1.02);
-        }
-
-        .card:hover .overlay {
-            opacity: 0;
-            transition: opacity 0.7s;
-        }        
-    </style>    
+</style>
 </head>
 
-<body class="bg-red-900 text-gray-300 overflow-x-hidden">
+<body class="bg-gradient-to-br from-white via-red-50 to-red-100 text-gray-800">
 
-<!-- Navbar -->
-<header class="fixed w-full z-50 backdrop-blur-lg bg-black/40 border-b border-red-500/20">
-  <nav class="max-w-6xl mx-auto flex justify-between items-center p-4">
+<!-- NAVBAR -->
+<header class="fixed w-full top-0 z-50 glass">
+  <button id="menuBtn" class="md:hidden text-xl">☰</button>
 
-    <!-- Logo -->
-    <h1 class="text-xl font-bold text-red-500 tracking-widest logo-font">
-      JERA
-    </h1>
+  <div id="mobileMenu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md p-6 flex flex-col gap-4 md:hidden">
+    <a href="#projects">Our Projects</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pricing</a>
+  </div>
 
-    <!-- Hamburger Button -->
-    <button id="menu-btn" class="md:hidden text-gray-300 text-2xl">
-      ☰
-    </button>
-
-    <!-- Desktop Menu -->
-    <ul class="hidden md:flex gap-6 text-gray-300">
-      <li><a href="#about" class="hover:text-red-400 transition">About</a></li>
-      <li><a href="#services" class="hover:text-red-400 transition">Services</a></li>
-      <li><a href="#projects" class="hover:text-red-400 transition">Projects</a></li>
-      <li><a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a></li>
-      <li><a href="#contact" class="hover:text-red-400 transition">Contact</a></li>
-    </ul>
-
-  </nav>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden md:hidden flex flex-col gap-4 p-4 bg-black/90 text-gray-300 border-t border-red-500/20">
-    <a href="#about" class="hover:text-red-400 transition">About</a>
-    <a href="#services" class="hover:text-red-400 transition">Services</a>
-    <a href="#projects" class="hover:text-red-400 transition">Projects</a>
-    <a href="#ongoing-projects" class="hover:text-red-400 transition">Ongoing Projects</a>
-    <a href="#contact" class="hover:text-red-400 transition">Contact</a>
+  <div class="max-w-7xl mx-auto flex justify-between items-center p-4">
+    <h1 class="font-bold text-xl text-red-500">JERA</h1>
+    <div class="hidden md:flex gap-6">
+      <a href="#projects" class="hover:text-red-500">Our Projects</a>
+      <a href="#features" class="hover:text-red-500">Features</a>
+      <a href="#pricing" class="hover:text-red-500">Pricing</a>
+    </div>
+    <a href="#cta" class="btn-primary px-5 py-2 rounded-lg">Get Started</a>
   </div>
 </header>
 
-<!-- Hero -->
-<section class="hero h-screen flex items-center justify-center text-center text-white">
-  <div class="z-10">
-    <h2 class="text-6xl font-bold mb-6 neon-text">JERA | IT Solutions</h2>
-    <p class="text-xl text-gray-200 mb-8">
-      Full-Stack Development • Embedded Systems • Automation
-    </p>
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center">
+  <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+        Build 
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-pink-500">
+          Scalable Systems
+        </span>
+        Faster
+      </h1>
+      <p class="text-gray-600 mb-6">
+        JERA helps you develop, automate, and deploy powerful business systems with modern architecture.
+      </p>
+      <div class="flex gap-4">
+        <a href="#cta" class="btn-primary px-6 py-3 rounded-xl shadow-lg">
+          Contact Us
+        </a>
+        <a class="px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-100">
+          View Projects
+        </a>
+      </div>
+    </div>
 
-    <a href="#projects"
-    class="px-8 py-3 bg-red-600 rounded-xl font-semibold
-    hover:bg-red-700 shadow-lg shadow-red-600/40 transition">
-      View My Work
-    </a>
+    <div class="glass rounded-2xl p-6 shadow-xl">
+      <img src="https://lh3.googleusercontent.com/d/1ExCo89WO0HVMukbGLh0-NM4XYe43iur9=w1000" class="rounded-xl">
+    </div>
   </div>
 </section>
 
-<!-- About -->
-<section id="about" class="reveal py-24 bg-gradient-to-b from-black to-red-500">
+<!-- FEATURES -->
+<section  data-aos="fade-up" id="features" class="py-24">
+  <div class="max-w-6xl mx-auto text-center mb-16">
+    <h2 class="text-3xl font-bold">Features</h2>
+    <p class="text-gray-600">Everything you need to scale</p>
+  </div>
+
+  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+    <div class="glass p-8 rounded-xl card-hover text-center">
+      <div class="text-red-500 text-3xl mb-4">⚡</div>
+      <h3 class="font-semibold text-lg mb-3">Automation</h3>
+      <p class="text-gray-600">Automate workflows and reduce manual tasks.</p>
+    </div>
+
+    <div class="glass p-8 rounded-xl card-hover text-center">
+      <div class="text-red-500 text-3xl mb-4">🔗</div>
+      <h3 class="font-semibold text-lg mb-3">Scalable APIs</h3>
+      <p class="text-gray-600">Robust backend systems for modern apps.</p>
+    </div>    
+
+    <div class="glass p-8 rounded-xl card-hover text-center">
+      <div class="text-red-500 text-3xl mb-4">📊</div>
+      <h3 class="font-semibold text-lg mb-3">Real-time Data</h3>
+      <p class="text-gray-600">Live updates and analytics dashboards.</p>
+    </div>     
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-24 bg-gradient-to-b from-black to-red-500">
   <div class="max-w-7xl mx-auto px-6">
 
     <!-- Section Title -->
     <div class="text-center mb-16">
-      <h2 class="text-4xl font-bold text-red-500 neon-text">About Us</h2>
-      <p class="text-gray-200 mt-4 max-w-2xl mx-auto">
+      <h2 class="text-4xl font-bold text-red-500 neon-text" data-aos="fade-up">About Us</h2>
+      <p class="text-gray-200 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
         Full-stack developer specializing in scalable backend systems and
         modern interactive web applications.
       </p>
@@ -272,319 +153,248 @@
     <div class="grid md:grid-cols-2 gap-16 items-start">
 
       <!-- LEFT SIDE -->
-      <div>
-        <div class="overflow-hidden rounded-xl group">
+      <div data-aos="fade-right">
+        <div class="overflow-hidden rounded-2xl glass shadow-lg group">
           <img src="https://lh3.googleusercontent.com/d/1ExCo89WO0HVMukbGLh0-NM4XYe43iur9=w1000"
-              class="rounded-xl shadow-2xl shadow-red-500/40 border border-red-500/30 
-                      transform transition duration-500 
-                      group-hover:scale-110 group-hover:brightness-110">
+              alt="Scalable Systems"
+              class="rounded-2xl shadow-2xl shadow-red-500/40 border border-red-500/30
+                     transform transition duration-500 group-hover:scale-110 group-hover:brightness-110">
         </div>
 
-        <p class="text-white mt-6 leading-relaxed">
+        <p class="text-white mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
           We build scalable applications using modern backend technologies
-          combined with fast responsive frontend frameworks. My focus is
+          combined with fast responsive frontend frameworks. Our focus is
           creating clean architecture, efficient APIs, and intuitive user
           interfaces.
         </p>
 
         <!-- Tech Stack Icons -->
-        <div class="mt-6 flex flex-wrap gap-3">
-
-            <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium">PHP</span>
-            <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium">Python</span>
-            <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium">Django</span>
-            <span class="px-4 py-2 bg-red-100 text-red-700 rounded-lg text-sm font-medium">C# .NET</span>
-            <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-lg text-sm font-medium">C++</span>
-            <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-medium">ReactJS</span>
-            <span class="px-4 py-2 bg-pink-100 text-pink-700 rounded-lg text-sm font-medium">AngularJS</span>
-            <span class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium">jQuery</span>
-            <span class="px-4 py-2 bg-gray-200 text-pink-700 rounded-lg text-sm font-medium">PostgreSQL</span>
+        <div class="mt-6 flex flex-wrap gap-3" data-aos="fade-up" data-aos-delay="300">
+          <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium">PHP</span>
+          <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium">Python</span>
+          <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium">Django</span>
+          <span class="px-4 py-2 bg-red-100 text-red-700 rounded-lg text-sm font-medium">C# .NET</span>
+          <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-lg text-sm font-medium">C++</span>
+          <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-medium">ReactJS</span>
+          <span class="px-4 py-2 bg-pink-100 text-pink-700 rounded-lg text-sm font-medium">AngularJS</span>
+          <span class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium">jQuery</span>
+          <span class="px-4 py-2 bg-gray-200 text-pink-700 rounded-lg text-sm font-medium">PostgreSQL</span>
         </div>
       </div>
 
       <!-- RIGHT SIDE SKILLS -->
-      <div>
+      <div class="space-y-10" data-aos="fade-left">
 
-        <!-- Backend -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-300">Backend Development</h3>
+        <!-- Skill Card Template -->
+        <div class="glass p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Backend Development</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>PHP / Laravel</span>
+                <span>90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-blue-600 h-2 rounded-full w-[90%]"></div>
+              </div>
+            </div>
 
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>PHP</span>
-              <span>90%</span>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Python / Django</span>
+                <span>75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-green-600 h-2 rounded-full w-[75%]"></div>
+              </div>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-blue-600 h-2 rounded-full w-[90%]"></div>
-            </div>
-          </div>
 
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>Python / Django</span>
-              <span>75%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-green-600 h-2 rounded-full w-[75%]"></div>
-            </div>
-          </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>C# .NET</span>
-              <span>90%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-purple-600 h-2 rounded-full w-[90%]"></div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>C# .NET</span>
+                <span>90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-purple-600 h-2 rounded-full w-[90%]"></div>
+              </div>
             </div>
           </div>
         </div>
 
         <!-- Frontend -->
-        <div class="mb-8">
-          <h3 class="text-xl font-semibold mb-4 text-gray-300">Frontend Development</h3>
+        <div class="glass p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Frontend Development</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>ReactJS</span>
+                <span>85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-cyan-500 h-2 rounded-full w-[85%]"></div>
+              </div>
+            </div>
 
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>ReactJS</span>
-              <span>85%</span>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>AngularJS</span>
+                <span>75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-red-500 h-2 rounded-full w-[75%]"></div>
+              </div>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-cyan-500 h-2 rounded-full w-[85%]"></div>
-            </div>
-          </div>
 
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>AngularJS</span>
-              <span>75%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-red-500 h-2 rounded-full w-[75%]"></div>
-            </div>
-          </div>
-
-          <div>
-            <div class="flex justify-between mb-1">
-              <span>jQuery</span>
-              <span>85%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-gray-700 h-2 rounded-full w-[85%]"></div>
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>jQuery</span>
+                <span>85%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-gray-700 h-2 rounded-full w-[85%]"></div>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Web Technologies -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-300">Web Technologies</h3>
-
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>RESTful APIs</span>
-              <span>90%</span>
+        <!-- Web & Other Technologies -->
+        <div class="glass p-6 rounded-2xl shadow-lg">
+          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Web & Other Technologies</h3>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>RESTful APIs</span>
+                <span>90%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-orange-500 h-2 rounded-full w-[90%]"></div>
+              </div>
             </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-orange-500 h-2 rounded-full w-[90%]"></div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>HTML5 + Tailwind CSS</span>
+                <span>92%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-teal-500 h-2 rounded-full w-[92%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>Arduino IDE</span>
+                <span>75%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-teal-900 h-2 rounded-full w-[75%]"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between mb-1">
+                <span>PostgreSQL | MySQL | Dynamo DB</span>
+                <span>70%</span>
+              </div>
+              <div class="w-full bg-gray-200 rounded-full h-2">
+                <div class="bg-pink-500 h-2 rounded-full w-[70%]"></div>
+              </div>
             </div>
           </div>
-
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>HTML5 + Tailwind CSS</span>
-              <span>92%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-teal-500 h-2 rounded-full w-[92%]"></div>
-            </div>
-          </div>
-
         </div>
-
-        <!-- Arduino Technologies -->
-        <div>
-          <h3 class="text-xl font-semibold mb-4 text-gray-300">Others</h3>
-
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>Arduino IDE</span>
-              <span>75%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-teal-900 h-2 rounded-full w-[75%]"></div>
-            </div>
-          </div>
-
-          <div class="mb-4">
-            <div class="flex justify-between mb-1">
-              <span>PostgreSQL | MySQL | Dynamo DB</span>
-              <span>70%</span>
-            </div>
-            <div class="w-full bg-gray-200 rounded-full h-2">
-              <div class="bg-pink-500 h-2 rounded-full w-[70%]"></div>
-            </div>
-          </div>          
-        </div>        
 
       </div>
+    </div>
+    <!-- Full Stack Integration -->
+    <div class="max-w-5xl mx-auto mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
+      <h3 class="text-2xl font-semibold mb-4">Full Stack Integration</h3>
+      <p class="text-gray-200">
+        Frontend (ReactJS/AngularJS + Tailwind) → API Layer (Laravel/Django/Node.js) → Enterprise Services (.NET) → Hardware/Performance Modules (C++) → Database (MySQL/PostgreSQL)
+      </p>
+    </div>
 
+  </div>
+</section>
+
+<!-- PRICING -->
+<section  data-aos="fade-up" name="pricing" id="pricing" class="py-24 bg-white/60">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl font-bold">Plans</h2>
+  </div>
+
+  <div class="max-w-5xl mx-auto grid md:grid-cols-3 gap-8 px-6">
+    <div class="glass p-8 rounded-xl text-center">
+      <h3 class="font-semibold mb-4">Student</h3>
+      <p class="text-sm text-red-500 mb-2">Low Cost and Efficient</p>
+
+      <ul class="text-sm text-gray-600 mb-4 space-y-1">
+        <li>✔ Full system development</li>
+        <li>✔ API integrations</li>
+        <li>✔ Minimum Dashboard analytics</li>
+        <li>✔ 6 months full support</li>
+        <li>✔ Optional documentation plus revision</li>
+        <li>✔ Complete knowledge transfer</li>
+      </ul>
+      <!-- <a class="btn-primary px-6 py-2 rounded-lg">Choose</a> -->
+    </div>
+
+    <div class="glass p-8 rounded-xl text-center border-2 border-red-500 scale-105 bg-black/80 shadow-xl">
+      <h3 class="text-3xl text-gray-200 font-semibold mb-2">SME</h3>
+      <p class="text-sm text-red-500 mb-2">Most Popular</p>
+
+      <ul class="text-sm text-gray-400 mb-4 space-y-1">
+        <li>✔ Full system development</li>
+        <li>✔ API integrations</li>
+        <li>✔ Full Dashboard analytics</li>
+        <li>✔ Multi-platform ready</li>
+        <li>✔ Full system and Database support</li>
+        <li>✔ 3 months free support with optional lifetime support</li>
+        <li>✔ Full System Documentation</li>
+        <li>✔ System trainings</li>
+        <li>✔ Project Hosting included</li>
+      </ul>
+
+      <!-- <a class="btn-primary px-6 py-2 rounded-lg">Choose</a> -->
+    </div>
+
+    <div class="glass p-8 rounded-xl text-center">
+      <h3 class="font-semibold mb-4">Enterprise</h3>
+      <p class="text-sm text-red-500 mb-2">All SME features but uses more powerful and scalable systems</p>
+
+      <ul class="text-sm text-gray-600 mb-4 space-y-1">
+        <li>✔ Full system development</li>
+        <li>✔ API integrations</li>
+        <li>✔ Full Dashboard analytics</li>
+        <li>✔ Multi-platform ready</li>
+        <li>✔ Full system and Database support</li>
+        <li>✔ 3 months free support with optional lifetime support</li>
+        <li>✔ Full System Documentation</li>
+        <li>✔ System trainings</li>
+        <li>✔ Project Hosting included</li>
+        <li>✔ Includes 24/7 support</li>
+      </ul>
+      <!-- <a class="btn-primary px-6 py-2 rounded-lg">Contact</a> -->
     </div>
   </div>
 </section>
 
-<section id="tech-stack" class="reveal py-24 bg-gradient-to-b from-red-500 to-black/60 text-white">
-
-  <h2 class="text-3xl font-bold text-center mb-16 text-gray-200 neon-text">
-    Tech Stack
-  </h2>
-
-  <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-10 px-6">
-
-    <!-- PHP -->
-    <div class="stack-card">
-      <i class="fa-brands fa-php text-5xl text-red-500 mb-4"></i>
-      <p>PHP</p>
-    </div>
-
-    <!-- Python -->
-    <div class="stack-card">
-      <i class="fa-brands fa-python text-5xl text-red-500 mb-4"></i>
-      <p>Python</p>
-    </div>
-
-    <!-- React -->
-    <div class="stack-card">
-      <i class="fa-brands fa-react text-5xl text-red-500 mb-4"></i>
-      <p>React</p>
-    </div>
-
-    <!-- HTML -->
-    <div class="stack-card">
-      <i class="fa-brands fa-html5 text-5xl text-red-500 mb-4"></i>
-      <p>HTML5</p>
-    </div>
-
-    <!-- CSS -->
-    <div class="stack-card">
-      <i class="fa-brands fa-css3-alt text-5xl text-red-500 mb-4"></i>
-      <p>CSS</p>
-    </div>
-
-    <!-- JS -->
-    <div class="stack-card">
-      <i class="fa-brands fa-js text-5xl text-red-500 mb-4"></i>
-      <p>JavaScript</p>
-    </div>
-
-    <!-- Database -->
-    <div class="stack-card">
-      <i class="fa-solid fa-database text-5xl text-red-500 mb-4"></i>
-      <p>MySQL</p>
-    </div>
-
-    <!-- Arduino -->
-    <div class="stack-card">
-      <i class="fa-solid fa-microchip text-5xl text-red-500 mb-4"></i>
-      <p>Arduino</p>
-    </div>
-
-    <div class="stack-card">
-    <i class="fa-solid fa-code text-5xl text-red-500 mb-4"></i>
-        <p>C# .NET</p>
-    </div>
-
-    <div class="stack-card">
-        <i class="fa-solid fa-database text-5xl text-red-500 mb-4"></i>
-        <p>PostgreSQL</p>
-    </div>
-  </div>
-
-</section>
-
-<section id="services" class="reveal py-24 bg-gradient-to-b from-black/60 to-black backdrop-blur-lg shadow-lg">
-
-  <h2 class="text-3xl font-bold text-center mb-16 text-red-500 neon-text">
-    Services Offered
-  </h2>
-
-  <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
-
-    <!-- Software Development -->
-    <div class="bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl
-    p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
-
-      <i class="fa-solid fa-code service-icon text-4xl text-red-500 mb-6"></i>
-
-      <h3 class="text-xl font-semibold mb-3 text-red-400">
-        Software Development
-      </h3>
-
-      <p class="text-gray-200">
-        Custom desktop and backend software solutions built using modern
-        technologies to automate workflows, manage data, and improve
-        operational efficiency.
-      </p>
-
-    </div>
-
-    <!-- Web Applications -->
-    <div class="bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl
-    p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
-
-      <i class="fa-solid fa-code service-icon text-4xl text-red-500 mb-6"></i>
-
-      <h3 class="text-xl font-semibold mb-3 text-red-400">
-        Web Applications
-      </h3>
-
-      <p class="text-gray-200">
-        Development of responsive and scalable web applications including
-        business systems, management platforms, dashboards, and modern
-        user interfaces.
-      </p>
-
-    </div>
-
-    <!-- Arduino Devices -->
-    <div class="bg-black/60 backdrop-blur-lg border border-red-500/20 rounded-xl
-    p-8 text-center shadow-lg hover:shadow-red-500/40 hover:-translate-y-3 transition duration-300">
-
-      <i class="fa-solid fa-code service-icon text-4xl text-red-500 mb-6"></i>
-
-      <h3 class="text-xl font-semibold mb-3 text-red-400">
-        Arduino-Based Devices
-      </h3>
-
-      <p class="text-gray-200">
-        Design and development of embedded systems such as IoT devices,
-        automation tools, monitoring systems, and custom Arduino-based
-        electronic solutions.
-      </p>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- Projects -->
-<section id="projects" class="reveal py-24 bg-black text-white">
+<section data-aos="fade-up" id="projects" class="py-24 bg-white/60">
   <div class="max-w-6xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center mb-12 text-red-500 neon-text">Projects</h2>
+    <h2 class="text-3xl font-bold text-center mb-12 text-red-500">Projects</h2>
 
     <div class="grid md:grid-cols-3 gap-8">
 
       <!-- Project Card -->
-      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4"> 
+      <div class="card bg-black/80 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4"> 
         <div class="relative overflow-hidden group">
           <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
             <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
           <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
+          <div class="absolute inset-0 bg-red-600/30 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
         </div>        
         <div class="p-5">
-            <h3 class="text-xl font-semibold mb-2 text-red-400">
+            <h3 class="text-xl font-semibold mb-2 text-red-500">
               Enrollment System with Grading and Scheduling
             </h3>
             <p class="text-gray-200 mb-3">
@@ -597,16 +407,16 @@
             </a>
         </div>
       </div>
-      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
+      <div class="card bg-black/80 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
         <div class="relative overflow-hidden group">
           <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
             <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
           <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
+          <div class="absolute inset-0 bg-red-600/30 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
         </div>        
         <div class="p-5">
-            <h3 class="text-xl font-semibold mb-2 text-red-400">
+            <h3 class="text-xl font-semibold mb-2 text-red-500">
               Arduino based Emergency and Medical Transmitter and Reciever using LoRa-02
             </h3>
             <p class="text-gray-200 mb-3">
@@ -617,16 +427,16 @@
             </a>
         </div>
       </div>
-      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
+      <div class="card bg-black/80 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4">
         <div class="relative overflow-hidden group">
           <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
             <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
           </div>
           <img src="https://lh3.googleusercontent.com/d/14zzYaTIVxlOBr5CbDF7iHO3hnd9A1mWu=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
+          <div class="absolute inset-0 bg-red-600/30 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
         </div>        
         <div class="p-5">
-            <h3 class="text-xl font-semibold mb-2 text-red-400">
+            <h3 class="text-xl font-semibold mb-2 text-red-500">
               Check our Project Repository
             </h3>
             <p class="text-gray-200 mb-3">
@@ -642,49 +452,7 @@
   </div>
 </section>
 
-<!-- Sample Projects -->
-<section id="sample-projects" class="reveal py-24 bg-gradient-to-b from-black to-bg-red/80 text-white">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold text-center mb-12 text-red-500 neon-text">Sample Projects</h2>
-      <p  class="text-gray-200 mt-4 max-w-2xl mx-auto">This projects are a bare-bone sample requested by potential client. This does not reflect the actual outcome of the request since no functionality no schemes and templates where applied.</p>
-    </div>
-
-    <div class="grid md:grid-cols-3 gap-8">
-
-      <!-- Project Card -->
-      <div class="card bg-black/50 backdrop-blur-xl border border-red-500/20 rounded-xl shadow-lg hover:shadow-red-500/40 transition duration-300 hover:-translate-y-4"> 
-        <div class="relative overflow-hidden group">
-          <div class="absolute inset-0 flex items-center justify-center bg-black/40" id="loader">
-            <div class="w-8 h-8 border-4 border-red-500 border-t-transparent rounded-full animate-spin"></div>
-          </div>
-          <img src="https://lh3.googleusercontent.com/d/1msmxWlndZdxyZYv5-EoHbpTJpXX-vW6h=w1000" class="project-img w-full" onload="this.previousElementSibling.style.display='none'" >
-          <div class="absolute inset-0 bg-red-600/40 backdrop-blur-sm opacity-100 group-hover:opacity-10 transition duration-500"></div>
-        </div>        
-        <div class="p-5">
-            <h3 class="text-xl font-semibold mb-2 text-red-400">
-              Sample Online Streaming Application
-            </h3>
-            <p class="text-gray-200 mb-3">
-              A video streaming web application sample with Featured video preview, suggestion algorithm for recently watched videos.
-            </p>
-            <a href="sample-streaming-aoo.html"
-              class="text-red-400 font-medium hover:text-red-500"
-              target="_blank">
-              View sample →
-            </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<section id="ongoing-projects" class="reveal py-24 bg-gradient-to-b from-bg-red/80 to-black/80">
-  <h2 class="text-3xl font-bold text-center mb-16 text-gray-200 neon-text">
-    Ongoing Projects
-  </h2>
-
+<section data-aos="fade-up" id="ongoing-projects" class="py-24 bg-white/60">
   <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-10 px-6">
 
     <!-- Project 1 -->
@@ -721,69 +489,64 @@
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact" class="reveal py-24 bg-black text-white flex flex-col items-center">
-    <h3 class="text-3xl font-bold text-center mb-10 text-red-500 neon-text">
-        Contact Us via our Socials or send us a mail<br/> @ <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jrapirap27@gmail.com&su=Hello&body=Hi%20there%2C%20I%20am%20interested%20in%20your%20services." class="text-white" target="_blank">jrapirap27@gmail.com</a> or <a href="https://mail.google.com/mail/?view=cm&fs=1&to=jkrapirap27@gmail.com&su=Hello&body=Hi%20there%2C%20I%20am%20interested%20in%20your%20services." class="text-white" target="_blank">jkrapirap27@gmail.com</a>.
-    </h3>
+<!-- CTA -->
+<section data-aos="fade-up" id="cta" class="py-24 text-center bg-black/80">
+  <h2 class="text-4xl text-red-500 font-bold mb-6">
+    Contact Us via our Socials or send us a mail<br/>
+    @ 
+    <a href="mailto:jrapirap27@gmail.com?subject=Hello&body=Hi there, I am interested in your services." 
+       class="text-gray-300 hover:underline transition-all">jrapirap27@gmail.com</a> or 
+    <a href="mailto:jkrapirap27@gmail.com?subject=Hello&body=Hi there, I am interested in your services." 
+       class="text-gray-300 hover:underline transition-all">jkrapirap27@gmail.com</a>.
+  </h2>
 
-  <h2 class="text-3xl font-bold text-center mb-10 text-red-500 neon-text">
+  <h2 class="text-3xl font-bold text-center mb-10 text-red-500">
     Connect with our Socials
   </h2>
 
   <div class="flex justify-center gap-10">
-
     <!-- GitHub -->
     <a href="https://github.com/jrapirap-local" target="_blank"
-       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125">
+       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125"
+       aria-label="GitHub Profile">
       <i class="fa-brands fa-github fa-2xl"></i>
     </a>
 
     <!-- LinkedIn -->
     <a href="https://linkedin.com/in/jeffrey-rapirap-924b37395" target="_blank"
-       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125">
+       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125"
+       aria-label="LinkedIn Profile">
       <i class="fa-brands fa-linkedin fa-2xl"></i>
     </a>
 
     <!-- Facebook -->
     <a href="https://facebook.com/jeraitsolution" target="_blank"
-       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125">
+       class="social-icon text-red-500 hover:text-red-400 transition transform hover:scale-125"
+       aria-label="Facebook Profile">
       <i class="fa-brands fa-facebook fa-2xl"></i>
     </a>
-
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-black border-t border-red-500/20 text-gray-500 text-center py-6">
-    <p>© 2026 JERA IT Solutions</p>
-</footer>
-
-<script>
-  const menuBtn = document.getElementById("menu-btn");
-  const mobileMenu = document.getElementById("mobile-menu");
-
-  menuBtn.addEventListener("click", () => {
-    mobileMenu.classList.toggle("hidden");
-  });
-
-
-  const reveal = document.querySelectorAll(".reveal");
-
-  function show(){
-  const windowHeight = window.innerHeight;
-
-  reveal.forEach(el=>{
-  const top = el.getBoundingClientRect().top;
-
-  if(top < windowHeight - 80){
-  el.classList.add("active");
-  }
-  });
-  }
-
-  window.addEventListener("scroll", show);   
-
-</script>
 </body>
+<script>
+  const menu = document.getElementById("mobileMenu");
+  document.getElementById("menuBtn").onclick = () => {
+    menu.classList.toggle("hidden");
+    menu.classList.toggle("opacity-0");
+    menu.classList.toggle("translate-y-2");
+  };
+
+  window.addEventListener("scroll", () => {
+    const header = document.querySelector("header");
+    if (window.scrollY > 50) {
+      header.classList.add("shadow-md", "bg-white/80");
+    } else {
+      header.classList.remove("shadow-md", "bg-white/80");
+    }
+  });
+
+  AOS.init();
+</script>
+
 </html>
