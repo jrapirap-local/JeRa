@@ -318,6 +318,223 @@ footer#cta {
 .btn-primary:hover::before {
   left: 120%;
 }
+
+/* GRID SECTION */
+.grid-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(239,68,68,.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(239,68,68,.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* LUXURY CARD */
+.lux-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.lux-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255,255,255,.7),
+      rgba(239,68,68,.2),
+      rgba(255,255,255,.6)
+    );
+
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+
+  pointer-events: none;
+}
+
+/* PORTFOLIO CARD */
+.portfolio-card {
+  border-radius: 1.5rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition:
+    transform .45s cubic-bezier(.22,1,.36,1),
+    box-shadow .45s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-10px);
+  box-shadow:
+    0 25px 60px rgba(239,68,68,.18);
+}
+
+/* IMAGE */
+.portfolio-img {
+  height: 220px;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/* TITLE */
+.portfolio-title {
+  font-size: 1.05rem;
+  line-height: 1.4;
+}
+
+/* DESCRIPTION */
+.portfolio-desc {
+  font-size: .92rem;
+  line-height: 1.6;
+  color: #6b7280;
+  flex-grow: 1;
+}
+
+/* BUTTON LINK */
+.portfolio-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  width: fit-content;
+  padding: .7rem 1rem;
+  border-radius: .9rem;
+  background: rgba(254,226,226,.75);
+  border: 1px solid rgba(239,68,68,.15);
+  transition: all .3s ease;
+}
+
+.portfolio-link:hover {
+  background: rgba(239,68,68,.12);
+  transform: translateX(4px);
+}
+
+.tech-card {
+  padding: 1.25rem;
+  transition: transform .35s ease, box-shadow .35s ease;
+}
+
+.tech-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(239,68,68,.16);
+}
+
+.tech-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: .45rem;
+}
+
+.tech-card p {
+  font-size: .88rem;
+  line-height: 1.55;
+  color: #6b7280;
+}
+
+.tech-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 1rem;
+  background: rgba(255,255,255,.72);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  margin-bottom: 1rem;
+}
+
+.carousel-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* ROTATING 3D CAROUSEL */
+.project-carousel-wrap {
+  perspective: 1400px;
+  height: 520px;
+  position: relative;
+}
+
+#projectCarousel {
+  position: relative;
+  height: 100%;
+  overflow: visible;
+}
+
+.carousel-card {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: min(86vw, 380px);
+  transform-style: preserve-3d;
+  transition:
+    transform .7s cubic-bezier(.22,1,.36,1),
+    opacity .45s ease,
+    filter .45s ease;
+}
+
+.carousel-card.is-active {
+  transform: translateX(-50%) translateZ(120px) scale(1.08);
+  opacity: 1;
+  filter: blur(0);
+  z-index: 5;
+  pointer-events: auto;
+}
+
+.carousel-card.is-left {
+  transform: translateX(-125%) translateZ(-180px) rotateY(28deg) scale(.78);
+  opacity: .28;
+  filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-card.is-right {
+  transform: translateX(25%) translateZ(-180px) rotateY(-28deg) scale(.78);
+  opacity: .28;
+  filter: blur(2px);
+  z-index: 2;
+  pointer-events: none;
+}
+
+.carousel-card.is-hidden {
+  transform: translateX(-50%) translateZ(-320px) scale(.65);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 640px) {
+  .project-carousel-wrap {
+    height: 560px;
+  }
+
+  .carousel-card.is-left {
+    transform: translateX(-110%) translateZ(-160px) rotateY(22deg) scale(.72);
+  }
+
+  .carousel-card.is-right {
+    transform: translateX(10%) translateZ(-160px) rotateY(-22deg) scale(.72);
+  }
+}
 </style>
 </head>
 <body class="text-gray-800 antialiased selection:bg-red-500 selection:text-white">
@@ -400,124 +617,198 @@ footer#cta {
 </section>
 
 <!-- ABOUT -->
-<section id="about" class="py-28 bg-gradient-to-b from-gray-950 via-red-950 to-red-700">
+<section id="about" class="py-24 bg-gradient-to-b from-gray-950 via-red-950 to-gray-950 grid-section">
   <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16">
+
+    <div class="text-center mb-14">
       <span class="section-kicker mb-4" data-aos="fade-up">Who we are</span>
-      <h2 class="text-4xl md:text-5xl font-bold text-white neon-text" data-aos="fade-up">About Us</h2>
-      <p class="text-gray-200 mt-4 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-        Full-stack developer specializing in scalable backend systems and modern interactive web applications.
+      <h2 class="text-4xl md:text-5xl font-bold text-white neon-text" data-aos="fade-up">
+        About JERA
+      </h2>
+      <p class="text-gray-300 mt-4 max-w-3xl mx-auto leading-relaxed" data-aos="fade-up" data-aos-delay="100">
+        We build reliable business systems using modern web technologies, scalable backend architecture,
+        responsive interfaces, and database-driven automation.
       </p>
     </div>
-    <div class="grid sm:grid-cols-1 md:grid-cols-2 gap-8 items-start">
-      <div data-aos="fade-right">
-        <div class="overflow-hidden rounded-2xl glass shadow-lg group">
-          <img src="https://lh3.googleusercontent.com/d/1ExCo89WO0HVMukbGLh0-NM4XYe43iur9=w1000" alt="Scalable Systems"
-               class="rounded-2xl shadow-2xl shadow-red-500/40 border border-red-500/30 transform transition duration-500 group-hover:scale-110 group-hover:brightness-110 w-full">
-        </div>
-        <p class="text-white mt-6 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
-          We build scalable applications using modern backend technologies
-          combined with fast responsive frontend frameworks. Our focus is
-          creating clean architecture, efficient APIs, and intuitive user
-          interfaces.
+
+    <div class="grid lg:grid-cols-[0.9fr_1.1fr] gap-8 items-start">
+
+      <!-- LEFT SUMMARY -->
+      <div class="glass lux-card pro-card" data-aos="fade-right">
+        <h3 class="text-2xl font-bold text-gray-950 mb-4">
+          Full-stack system development focused on performance, automation, and clean implementation.
+        </h3>
+
+        <p class="text-gray-600 leading-relaxed mb-6">
+          JERA combines frontend design, backend logic, API integration, and database management to create
+          practical systems for schools, businesses, inventory workflows, attendance monitoring, and custom operations.
         </p>
-        <div class="mt-6 flex flex-wrap justify-center md:justify-start gap-3" data-aos="fade-up" data-aos-delay="300">
-          <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-sm font-medium">PHP</span>
-          <span class="px-4 py-2 bg-green-100 text-green-700 rounded-lg text-sm font-medium">Python</span>
-          <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-sm font-medium">Django</span>
-          <span class="px-4 py-2 bg-red-100 text-red-700 rounded-lg text-sm font-medium">C# .NET</span>
-          <span class="px-4 py-2 bg-yellow-100 text-yellow-700 rounded-lg text-sm font-medium">C++</span>
-          <span class="px-4 py-2 bg-indigo-100 text-indigo-700 rounded-lg text-sm font-medium">ReactJS</span>
-          <span class="px-4 py-2 bg-pink-100 text-pink-700 rounded-lg text-sm font-medium">AngularJS</span>
-          <span class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium">jQuery</span>
-          <span class="px-4 py-2 bg-gray-200 text-pink-700 rounded-lg text-sm font-medium">PostgreSQL</span>
-        </div>
-      </div>
 
-      <!-- SKILLS -->
-      <div class="space-y-10" data-aos="fade-left">
-        <!-- Backend -->
-        <div class="glass pro-card shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Backend Development</h3>
-          <div class="space-y-4">
-            <div><div class="flex justify-between mb-1"><span>PHP / Laravel</span><span>90%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full w-[90%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>Python / Django</span><span>75%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-green-600 h-2 rounded-full w-[75%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>C# .NET</span><span>90%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-purple-600 h-2 rounded-full w-[90%] sm:w-full"></div></div></div>
+        <div class="grid grid-cols-2 gap-3">
+          <div class="rounded-2xl bg-white/70 border border-red-100 p-4">
+            <p class="text-2xl font-bold text-red-500">Web</p>
+            <p class="text-sm text-gray-500">Modern responsive interfaces</p>
           </div>
-        </div>
-
-        <!-- Frontend -->
-        <div class="glass pro-card shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Frontend Development</h3>
-          <div class="space-y-4">
-            <div><div class="flex justify-between mb-1"><span>ReactJS</span><span>85%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-cyan-500 h-2 rounded-full w-[85%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>AngularJS</span><span>75%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-red-500 h-2 rounded-full w-[75%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>jQuery</span><span>85%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-gray-700 h-2 rounded-full w-[85%] sm:w-full"></div></div></div>
+          <div class="rounded-2xl bg-white/70 border border-red-100 p-4">
+            <p class="text-2xl font-bold text-red-500">API</p>
+            <p class="text-sm text-gray-500">Secure system integrations</p>
           </div>
-        </div>
-
-        <!-- Web & Other -->
-        <div class="glass pro-card shadow-lg">
-          <h3 class="text-xl font-semibold mb-4 text-red-500 neon-text">Web & Other Technologies</h3>
-          <div class="space-y-4">
-            <div><div class="flex justify-between mb-1"><span>RESTful APIs</span><span>90%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-orange-500 h-2 rounded-full w-[90%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>HTML5 + Tailwind CSS</span><span>92%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-teal-500 h-2 rounded-full w-[92%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>Arduino IDE</span><span>75%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-teal-900 h-2 rounded-full w-[75%] sm:w-full"></div></div></div>
-            <div><div class="flex justify-between mb-1"><span>PostgreSQL | MySQL | Dynamo DB</span><span>70%</span></div><div class="w-full bg-gray-200 rounded-full h-2"><div class="bg-pink-500 h-2 rounded-full w-[70%] sm:w-full"></div></div></div>
+          <div class="rounded-2xl bg-white/70 border border-red-100 p-4">
+            <p class="text-2xl font-bold text-red-500">DB</p>
+            <p class="text-sm text-gray-500">Structured data management</p>
+          </div>
+          <div class="rounded-2xl bg-white/70 border border-red-100 p-4">
+            <p class="text-2xl font-bold text-red-500">IoT</p>
+            <p class="text-sm text-gray-500">Hardware-assisted workflows</p>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="max-w-5xl mx-auto mt-16 text-center" data-aos="fade-up" data-aos-delay="300">
-      <h3 class="text-2xl font-semibold mb-4">Full Stack Integration</h3>
-      <p class="text-gray-200">
-        Frontend (ReactJS/AngularJS + Tailwind) → API Layer (Laravel/Django/Node.js) → Enterprise Services (.NET) → Hardware/Performance Modules (C++) → Database (MySQL/PostgreSQL)
-      </p>
+      <!-- TECH STACK -->
+      <div class="grid sm:grid-cols-2 gap-5" data-aos="fade-left">
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-blue-600">
+            <i class="fa-brands fa-php"></i>
+          </div>
+          <h3>PHP / Laravel</h3>
+          <p>Used for structured web systems, business logic, dashboards, authentication, and maintainable backend workflows.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-green-600">
+            <i class="devicon-python-plain"></i>
+          </div>
+          <h3>Python / Django</h3>
+          <p>Ideal for secure web applications, admin panels, automation, API endpoints, and database-driven platforms.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-purple-600">
+            <i class="devicon-dotnetcore-plain"></i>
+          </div>
+          <h3>C# / .NET</h3>
+          <p>Used for desktop tools, enterprise modules, device integrations, and stable Windows-based system utilities.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-cyan-600">
+            <i class="fa-brands fa-react"></i>
+          </div>
+          <h3>ReactJS</h3>
+          <p>Used for dynamic interfaces, POS screens, dashboards, reusable UI components, and fast user interaction.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-red-600">
+            <i class="fa-brands fa-angular"></i>
+          </div>
+          <h3>AngularJS</h3>
+          <p>Applied for structured frontend applications, modular screens, and organized client-side workflows.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-gray-700">
+            <i class="devicon-jquery-plain"></i>
+          </div>
+          <h3>jQuery</h3>
+          <p>Useful for lightweight interaction, legacy support, dynamic UI behavior, and fast integration with existing pages.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-orange-600">
+            <i class="fa-solid fa-code-branch"></i>
+          </div>
+          <h3>RESTful APIs</h3>
+          <p>Connects frontend, backend, mobile tools, hardware helpers, and external services through clean data exchange.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-teal-600">
+            <i class="fa-brands fa-html5"></i>
+          </div>
+          <h3>HTML5 / Tailwind CSS</h3>
+          <p>Used to create responsive layouts, clean visual systems, modern landing pages, and polished user interfaces.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-emerald-700">
+            <i class="fa-solid fa-microchip"></i>
+          </div>
+          <h3>Arduino IDE</h3>
+          <p>Used for prototype hardware systems, emergency transmitters, attendance tools, and device-based automation.</p>
+        </div>
+
+        <div class="glass lux-card pro-card tech-card">
+          <div class="tech-icon text-pink-600">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h3>PostgreSQL / MySQL</h3>
+          <p>Handles structured records, transactions, inventory, enrollment data, attendance logs, and report generation.</p>
+        </div>
+
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
+<!-- PROJECTS CAROUSEL -->
 <section id="projects" class="py-16 bg-red-50/80 grid-section">
   <div class="max-w-6xl mx-auto text-center mb-10 px-6">
     <span class="section-kicker mb-4">Portfolio</span>
     <h2 class="text-4xl md:text-5xl font-bold text-gray-950">Our Projects</h2>
-    <p class="text-gray-600 mt-2">Some of the solutions we've built for our clients</p>
+    <p class="text-gray-600 mt-2">Swipe or click through selected solutions</p>
   </div>
-  <div class="max-w-6xl mx-auto grid sm:grid-cols-1 md:grid-cols-3 gap-5 px-6">
-    <div class="glass portfolio-card lux-card card-hover text-left">
-      <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w500" class="portfolio-img w-full image-frame" alt="Enrollment System project">
-      <div>
-        <h3 class="portfolio-title font-semibold text-gray-950">Enrollment System with Grading and Scheduling</h3>
-        <p class="portfolio-desc">A responsive website for small to medium educational institutions that handles enrollment, class-specific grading, and scheduling.</p>
+
+  <div class="project-carousel-wrap max-w-6xl mx-auto px-6">
+      <div id="projectCarousel">
+
+      <!-- Card 1 -->
+      <div class="carousel-card glass portfolio-card lux-card card-hover text-left">
+        <img src="https://lh3.googleusercontent.com/d/1l4umaZQM8X5EB-Pi2LjHsZ992CKSxOUO=w500" class="portfolio-img w-full image-frame" alt="Enrollment System project">
+        <div>
+          <h3 class="portfolio-title font-semibold text-gray-950">Enrollment System with Grading and Scheduling</h3>
+          <p class="portfolio-desc">A responsive website for educational institutions that handles enrollment, grading, and scheduling.</p>
+        </div>
+        <a href="https://github.com/jrapirap-local/Enrolment-Management-system-with-Gradng-and-Scheduling" class="portfolio-link text-red-500 font-semibold hover:text-red-600" target="_blank">
+          Repository <span>→</span>
+        </a>
       </div>
-      <a href="https://github.com/jrapirap-local/Enrolment-Management-system-with-Gradng-and-Scheduling"
-        class="portfolio-link text-red-500 font-semibold hover:text-red-600"
-        target="_blank">
-        Repository <span>→</span>
-      </a>
-    </div>
-    <div class="glass portfolio-card lux-card card-hover text-left">
-      <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w500" class="portfolio-img w-full image-frame" alt="LoRa transmitter and receiver project">
-      <div>
-        <h3 class="portfolio-title font-semibold text-gray-950">Arduino Emergency Medical Transmitter using LoRa-02</h3>
-        <p class="portfolio-desc">Arduino-based transmission system that sends precise emergency and medical instructions from one device to another.</p>
+
+      <!-- Card 2 -->
+      <div class="carousel-card glass portfolio-card lux-card card-hover text-left">
+        <img src="https://lh3.googleusercontent.com/d/1LMKwOX7fU62uqXlq9dDKEbSEcb7TctAk=w500" class="portfolio-img w-full image-frame" alt="LoRa transmitter and receiver project">
+        <div>
+          <h3 class="portfolio-title font-semibold text-gray-950">Arduino Emergency Medical Transmitter using LoRa-02</h3>
+          <p class="portfolio-desc">Arduino-based transmission system for sending emergency and medical instructions between devices.</p>
+        </div>
+        <a href="https://github.com/jrapirap-local/Arduino-Based-Transmitter-and-Receiver" class="portfolio-link text-red-500 font-semibold hover:text-red-600" target="_blank">
+          Repository <span>→</span>
+        </a>
       </div>
-      <a href="https://github.com/jrapirap-local/Arduino-Based-Transmitter-and-Receiver" class="portfolio-link text-red-500 font-semibold hover:text-red-600" target="_blank">
-        Repository <span>→</span>
-      </a>
-    </div>
-    <div class="glass portfolio-card lux-card card-hover text-left">
-      <img src="https://lh3.googleusercontent.com/d/1-3j-7jVywbbw5ygkBE9Ik41Wkdxst4tY=w500" class="portfolio-img w-full image-frame" alt="Fingerprint attendance project">
-      <div>
-        <h3 class="portfolio-title font-semibold text-gray-950">Fingerprint Attendance Management System</h3>
-        <p class="portfolio-desc">Attendance management system with fingerprint scanner support for reliable time-in and time-out tracking.</p>
+
+      <!-- Card 3 -->
+      <div class="carousel-card glass portfolio-card lux-card card-hover text-left">
+        <img src="https://lh3.googleusercontent.com/d/1-3j-7jVywbbw5ygkBE9Ik41Wkdxst4tY=w500" class="portfolio-img w-full image-frame" alt="Fingerprint attendance project">
+        <div>
+          <h3 class="portfolio-title font-semibold text-gray-950">Fingerprint Attendance Management System</h3>
+          <p class="portfolio-desc">Attendance system with fingerprint scanner support for reliable time-in and time-out tracking.</p>
+        </div>
+        <a href="http://72.62.254.36/login/" class="portfolio-link text-red-500 font-semibold hover:text-red-600" target="_blank">
+          Live Site <span>→</span>
+        </a>
       </div>
-      <a href="http://72.62.254.36/login/" class="portfolio-link text-red-500 font-semibold hover:text-red-600" target="_blank">
-        Live Site <span>→</span>
-      </a>
+
     </div>
+
+    <button id="projectPrev" class="absolute left-2 top-1/2 -translate-y-1/2 btn-primary w-11 h-11 rounded-full shadow-xl">
+      ‹
+    </button>
+
+    <button id="projectNext" class="absolute right-2 top-1/2 -translate-y-1/2 btn-primary w-11 h-11 rounded-full shadow-xl">
+      ›
+    </button>
   </div>
 </section>
 
@@ -680,25 +971,64 @@ footer#cta {
     <i class="fa-solid fa-paper-plane"></i>
   </button>
 
-  <div id="contactPanel" class="contact-panel glass mt-3 rounded-[1.5rem] p-5 shadow-2xl border border-red-500/20 hidden animate-fadeUp">
-    Click a link below
-    <h4 class="text-1xl md:text-2xl text-red-500 font-bold mb-8 max-w-5xl mx-auto leading-tight">
+  <div id="contactPanel" class="contact-panel glass mt-3 rounded-[1.8rem] p-6 shadow-2xl border border-red-500/20 hidden animate-fadeUp">
+
+    <div class="flex items-center justify-between mb-5">
+      <div>
+        <p class="text-xs uppercase tracking-[0.25em] text-red-500 font-bold">
+          Contact
+        </p>
+        <h3 class="text-2xl font-bold text-gray-900">
+          Send an Inquiry
+        </h3>
+      </div>
+
+      <div class="w-12 h-12 rounded-2xl bg-red-100 flex items-center justify-center text-red-500 text-xl">
+        <i class="fa-solid fa-envelope"></i>
+      </div>
+    </div>
+
+    <p class="text-sm text-gray-500 leading-relaxed mb-5">
+      Choose an email below to open directly in Gmail compose.
+    </p>
+
+    <div class="space-y-3">
+
       <a 
         href="https://mail.google.com/mail/?view=cm&fs=1&to=jrapirap27@gmail.com&su=Hello&body=Hi%20there,%20I%20am%20interested%20in%20your%20services."
         target="_blank"
-        class="text-gray-900 hover:underline transition-all"
+        class="flex items-center justify-between rounded-2xl border border-red-100 bg-white/80 px-5 py-4 hover:border-red-300 hover:shadow-lg transition-all group"
       >
-        jrapirap27@gmail.com
+        <div>
+          <p class="text-xs text-gray-500 mb-1">Primary Email</p>
+          <p class="font-semibold text-gray-900">
+            jrapirap27@gmail.com
+          </p>
+        </div>
+
+        <div class="text-red-500 text-lg group-hover:translate-x-1 transition-transform">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
       </a>
 
       <a 
         href="https://mail.google.com/mail/?view=cm&fs=1&to=jkrapirap27@gmail.com&su=Hello&body=Hi%20there,%20I%20am%20interested%20in%20your%20services."
         target="_blank"
-        class="text-gray-900 hover:underline transition-all"
+        class="flex items-center justify-between rounded-2xl border border-red-100 bg-white/80 px-5 py-4 hover:border-red-300 hover:shadow-lg transition-all group"
       >
-        jkrapirap27@gmail.com
+        <div>
+          <p class="text-xs text-gray-500 mb-1">Secondary Email</p>
+          <p class="font-semibold text-gray-900">
+            jkrapirap27@gmail.com
+          </p>
+        </div>
+
+        <div class="text-red-500 text-lg group-hover:translate-x-1 transition-transform">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </div>
       </a>
-    </h4>
+
+    </div>
   </div>
 </div>
 
@@ -711,6 +1041,38 @@ function toggleMenu() {
   mobileMenu.classList.toggle('hidden');
 }
 menuBtn.addEventListener('click', toggleMenu);
+
+const projectPrev = document.getElementById("projectPrev");
+const projectNext = document.getElementById("projectNext");
+const cards = [...document.querySelectorAll(".carousel-card")];
+
+let activeIndex = 0;
+
+function rotateCarousel(direction = 0) {
+  activeIndex = (activeIndex + direction + cards.length) % cards.length;
+
+  cards.forEach((card, index) => {
+    card.classList.remove("is-active", "is-left", "is-right", "is-hidden");
+
+    const leftIndex = (activeIndex - 1 + cards.length) % cards.length;
+    const rightIndex = (activeIndex + 1) % cards.length;
+
+    if (index === activeIndex) {
+      card.classList.add("is-active");
+    } else if (index === leftIndex) {
+      card.classList.add("is-left");
+    } else if (index === rightIndex) {
+      card.classList.add("is-right");
+    } else {
+      card.classList.add("is-hidden");
+    }
+  });
+}
+
+projectNext?.addEventListener("click", () => rotateCarousel(1));
+projectPrev?.addEventListener("click", () => rotateCarousel(-1));
+
+rotateCarousel(0);
 
 const contactToggle = document.getElementById('contactToggle');
 const contactPanel = document.getElementById('contactPanel');
